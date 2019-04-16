@@ -14,6 +14,12 @@ app.use('/',async function(req,res){
     try
     {
         let src = await analysis.findSuspiciousFile()
+        if(!src)
+        {
+            res.type('text/plain')
+            res.send('Didn\'t find injected files.')
+            return
+        }
         let downloadedFilePath = await analysis.downloadSuspiciousFile(src)
         let nameToSubmit = path.parse(downloadedFilePath).base
         con.submitFileForAnalysis(nameToSubmit, "application/javascript", fs.readFileSync(downloadedFilePath), function(data){
