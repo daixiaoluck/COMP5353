@@ -15,8 +15,9 @@ let toBeExported = {
                 }else
                 {
                     let $ = cheerio.load(body)
-                    let tempFileSelector = `script[src*='${config.suspiciousFile}']`
-                    let src = $(tempFileSelector).first().prop('src')
+                    let tempFileSelector = `[src$='${config.suspiciousFile}']`
+                    let $theNode = $(tempFileSelector).first()
+                    let src = $theNode.attr('src')
                     resolve(src)
                 }
             })

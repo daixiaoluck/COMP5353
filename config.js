@@ -1,6 +1,6 @@
 const toBeExported = {
-    url:'https://epay.163.com/',
-    suspiciousFile:'load.min.js'
+    url:'http://www.baidu.com/',
+    suspiciousFile:'hook.js'
 }
 
 module.exports = toBeExported

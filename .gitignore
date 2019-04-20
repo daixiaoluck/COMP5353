@@ -1,6 +1,7 @@
 # Webstorm
 .idea/
-downloaded/
+downloaded/*
+!downloaded/.gitkeep
 
 # Logs
 logs
