@@ -1,5 +1,5 @@
 const toBeExported = {
-    url:'http://www.baidu.com/',
+    url:'http://localhost:8080/InjectedWebpage/InjectedWebPage.html',
     suspiciousFile:'hook.js'
 }
 

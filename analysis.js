@@ -24,11 +24,17 @@ let toBeExported = {
         })
     },
     downloadSuspiciousFile:function(src) {
-        let regExp = /^\/\//
-        if(regExp.test(src))
+        if(/^\/\//.test(src))
         {
             let tempProtocol = url.parse(config.url).protocol
             src = `${tempProtocol}${src}`
+        }
+        else if(!src.startsWith('http://') && !src.startsWith('https://'))
+        {
+            let urlObj = url.parse(config.url)
+            let tempHost = urlObj.host
+            let tempProtocol = urlObj.protocol
+            src = `${tempProtocol}//${tempHost}${src}`
         }
         return new Promise((resolve, reject) => {
             wget(
